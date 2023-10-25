@@ -22,7 +22,7 @@ app.add_middleware(
 
 #defines pydantic model named "Document" and data structure
 class Document(BaseModel):
-    uuid: uuid
+    uuid: str
     document_name: str
     created_at: datetime
     description: str
@@ -34,10 +34,10 @@ class Config:
 
 #Sample data for the document
 document_db = [
-    Document(uuid = uuid.uuid4(),
-             document_name = "my cool private doc",
+    Document(uuid = str(uuid.uuid4()),
+             document_name = "My cool private document",
              created_at=datetime.now(),
-             description="its a secret document",
+             description="it's a secret document.",
              expires_at = datetime.now() + relativedelta(months = 1))
 ]
 
